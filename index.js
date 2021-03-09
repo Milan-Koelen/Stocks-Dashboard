@@ -76,6 +76,7 @@ app.get('/stocks', async (req, res) => {
 		// console.log(data);
 
 		const totals = calculateTotals(data);
+		console.log(data);
 
 		res.render('stocks/stocks', { data, totals });
 		// res.json(data);
@@ -221,28 +222,8 @@ app.put('/stocks/:id', async (req, res, e) => {
 app.get('/stocks/:id', async (req, res, e) => {
 	const { id } = req.params;
 	const Stockdetail = await Stock.findById(id);
-	// const symbol = await JSON.parse(Stockdetail.Symbol)
-	// if (e) console.error(e);
-	// else {
-	// console.log(req);
 	console.log('details');
 	console.log(Stockdetail);
-	// console.log(symbol)
-	// console.log("Fetch API");
-	// api_helper.make_API_call('https://sandbox.iexapis.com/stable/stock/' + Stockdetail.Symbol + '/quote?token=Tpk_b466790700ef4bfe92d935153c49a775')
-	// .then(async res => {
-	// 	// res.json(response);
-	// 	const stock = await Stock.findByIdAndUpdate(id, {
-	// 		Name: res.companyName,
-
-	// 	}, {runValidators:true});
-	// 	console.log("render page");
-
-	// 	console.log("page rendered")
-	// })
-	// .catch(error => {
-	//     console.log(error)
-	// })
 	res.render('stocks/detailsDashboard', { Stockdetail });
 
 	// res.json(Stockdetail);
@@ -251,43 +232,3 @@ app.get('/stocks/:id', async (req, res, e) => {
 app.listen(port, () => {
 	console.log(`Server is up at http://localhost:${port}`);
 });
-
-// const req1 = api_helper.make_API_call('https://sandbox.iexapis.com/stable/stock/' + Stockdetail.Symbol + '/quote?token=Tpk_b466790700ef4bfe92d935153c49a775')
-// const req2 = api_helper.make_API_call('https://sandbox.iexapis.com/stable/stock/' + Stockdetail.Symbol + '/quote?token=Tpk_b466790700ef4bfe92d935153c49a775')
-// const req3 = api_helper.make_API_call('https://sandbox.iexapis.com/stable/stock/' + Stockdetail.Symbol + '/quote?token=Tpk_b466790700ef4bfe92d935153c49a775')
-// const req4 = api_helper.make_API_call('https://sandbox.iexapis.com/stable/stock/' + Stockdetail.Symbol + '/quote?token=Tpk_b466790700ef4bfe92d935153c49a775')
-
-// Promise.all([req1, req2, req3, req4]).then(results=>{
-
-// }).catch(err=>{
-// 	console.log(err)
-// })
-
-// console.log('test')
-
-/*
-
-
-*/
-
-// const newStock = new Stock({
-//     Symbol: 'T',
-//     Logo: '',
-//     Sector: 'communications',
-//     Shares: 1.08,
-//     DivFrequency: 'quarterly',
-//     Price: 28.146
-// }).save().then((val)=>{
-//     console.log(val);
-// })
-
-// Stock.find((err, res) => {
-// 	if (err) console.error(err);
-// 	console.log(res);
-// });
-
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-//
-// });
