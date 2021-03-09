@@ -1,0 +1,21 @@
+{
+  "name": "passive-income-management",
+  "version": "1.0.0",
+  "description": "A massive income management application",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd -f .env.prd node index.js",
+    "start_dev": "env-cmd -f .env node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "agenda": "^4.1.0",
+    "agendash": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
+    "mongoose": "^5.10.15",
+    "node-fetch": "^2.6.1"
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+      <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Dividend Calendar</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <link rel="stylesheet" href="style.css">
+
+      </head>
+      <body>
+            <div class="container">      
+                  <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                              <h1 class="display-4"><strong>Dividend Calendar</strong></h1>
+                              <p class="lead">When will I get paid</p>
+                          <a class="btn btn-primary btn-lg" href="dividendPortfolio.html" role="button">Dividend Portfolio</a>
+                        </div>
+                  </div>
+
+                  <table class="table table-striped">
+                        <!-- <thead class="thead-dark">
+                              <tr>
+                                    <th>Logo</th>
+                                    <th>Shares</th>
+                                    <th>Dividend</th>
+                                    <th>Yield</th>
+                                    <th>Ex-Div Date</th>
+                                    <th>Payday</th>
+                                    <th>Frequency</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                    <td>
+                                    <div class="smlogo">
+                                          <img class="logo-small" src="https://storage.googleapis.com/iex/api/logos/MMM.png">
+                                    </div>
+                                    </td>
+                                    <td><input type="number" name="mmmQty" value="1.1747913"></td>
+                                    <td><strong>5,88USD</strong></td>
+                                    <td><strong>3,461%</strong></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Quarterly</td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                    <div class="smlogo">
+                                          <img class="logo-small" src="https://storage.googleapis.com/iex/api/logos/AAPL.png">
+                                    </div>
+                                    </td>
+                                    <td><input type="number" name="aaplQty" value="1.033417"></td>
+                                    <td><strong>0,88USD</strong></td>
+                                    <td><strong>0,7%</strong></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Quarterly</td>
+                              </tr>
+                              <tr>
+                                    <td>
+                                    <div class="smlogo">
+                                          <img class="logo-small" src="https://storage.googleapis.com/iex/api/logos/O.png">
+                                    </div>
+                                    </td>
+                                    <td><input type="number" name="olQty" value="3.033417"></td>
+                                    <td><strong>0,21USD</strong></td>
+                                    <td><strong>4,2%</strong></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Monthly</td>
+                              </tr>
+                        </tbody> -->
+                  </table>
+                  <a class="btn btn-primary btn-lg" href="stockPortfolio.html" role="button">Go Back</a>
+            </div>
+            <script src="stocks.js"></script>
+            <script src="script.js"></script>
+            <script>
+                  let table = document.querySelector('table');
+
+                  const tableData = makeStocksDataForDividendCal();
+
+                  console.log(tableData)
+
+                  fillTable(tableData, table)
+            </script>
+      </body>
+</html>

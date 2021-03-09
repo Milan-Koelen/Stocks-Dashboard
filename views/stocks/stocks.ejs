@@ -1,0 +1,498 @@
+<html lang="en" class=" ">
+
+<head>
+  <%- include('partials/dashboardHeader') %>
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <%- include('partials/menu') %>
+
+
+      <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main" style="min-height: 955px;">
+        <%- include('partials/totalsRow') %>
+
+          <!-- Dividend Piechart -->
+          <div class="row">
+            <div class="col-md-8">
+              <div class="x_panel">
+                <div class="col-md-12 col-sm-12">
+                  <div class="x_title">
+                    <h2>Dividend<small>Diversification</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                          aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Settings 1</a>
+                          <a class="dropdown-item" href="#">Settings 2</a>
+                        </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id='ValueGrowth'></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+              let chart = document.getElementById('ValueGrowth').getContext('2d');
+              let ValueChart = new Chart(chart, {
+                type: 'pie',
+                data: {
+                  labels: ['Real Estate', 'Technology', 'Finance', 'Healthcare', 'Industrials', 'S&P500'],
+                  datasets: [{
+                    label: 'Percentage',
+                    data:
+                      [
+                        60,
+                        10,
+                        6,
+                        3,
+                        12,
+                        8
+                      ],
+                    backgroundColor: ['lightblue', 'lightgreen', 'pink', 'purple', 'turquoise', 'orange']
+                  }],
+                  borderWidth: 1,
+                  hoverBorderWidth: 5,
+                  hoverBorderColor: "#7887",
+                },
+                options: {}
+              });
+            </script>
+
+            <!-- Top Earners -->
+
+            <div class="col-md-4">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Top Earners<small>Annualy</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
+                          class="fa fa-wrench"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Settings 1</a>
+                        <a class="dropdown-item" href="#">Settings 2</a>
+                      </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title">AGNC</a>
+                      <p><strong>$24,16</strong></p>
+                      <p> <small>15,9 Shares @ $1,52 per share</small></p>
+                      <p> <small>10,29% Yield</small></p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title">O</a>
+                      <p><strong>$10,49</strong></p>
+                      <p> <small>3,74 Shares @ $2,80 per share</small></p>
+                      <p> <small>4,53% Yield</small></p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title">MMM</a>
+                      <p><strong>$7,60</strong></p>
+                      <p> <small>1,31 Shares @ $5,80 per share</small></p>
+                      <p> <small>3,41% Yield</small></p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title">STORE</a>
+                      <p><strong>$3,53</strong></p>
+                      <p> <small>2,56 Shares @ $1,38 per share</small></p>
+                      <p> <small>4,24% Yield</small></p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title">T</a>
+                      <p><strong>$3,12</strong></p>
+                      <p> <small>1,54 Shares @ $2,03 per share</small></p>
+                      <p> <small>4,24% Yield</small></p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Table  -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="x_panel">
+                <div class="col-md-12 col-sm-12">
+                  <div class="x_title">
+                    <h2>Stocks<small>Current stock holdings</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                          aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Settings 1</a>
+                          <a class="dropdown-item" href="#">Settings 2</a>
+                        </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" style="overflow-x:auto">
+                    <table class="table table-hover data-table table table-striped table-bordered dataTable no-footer">
+                      <thead class="thead-dark">
+                        <tr role="row">
+                          <th>Ticker</th>
+                          <!-- <th>Logo</th> -->
+                          <th>Shares</th>
+                          <!-- <th>Avg. Price</th> -->
+                          <th>Principal</th>
+                          <th>Value</th>
+                          <th>Sector</th>
+                          <th>Dividend</th>
+                          <th>Yield</th>
+                          <th>Payday</th>
+                          <!-- <th>Frequency</th> -->
+                          <th>Ownership ‰</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%let TotDiv=0%>
+                          <%let Shares=0%>
+                            <%let TotInv=0%>
+                              <% for(let stock of data) { %>
+                                <%TotDiv=TotDiv + Math.round(stock.AnnualDiv * stock.Shares * 100)/ 100%>
+                                  <%Shares=Shares + Math.round(stock.Shares * 100)/100%>
+                                    <%TotInv=TotInv + Math.round(stock.Price * stock.Shares * 100)/100%>
+                                      <tr>
+                                        <td><a href="/stocks/<%=stock._id%>">
+                                            <%= stock.Symbol %>
+                                          </a></td>
+                                        <!-- <td>
+                              <div class="smlogo">
+                                <img class="logo-small" src="<%= stock.Logo %>">
+                              </div>
+                                      </td> -->
+                                        <td class="shareQnt"> <input type="number" class="shareQty"
+                                            value="<%= stock.Shares %>"></td>
+                                        <!-- <td><%="$ " + stock.Price %></td> -->
+                                        <td>
+                                          <%="$ " + Math.round(stock.Price * 100 * stock.Shares)/100 %></td>
+                        <td><%='$' + Math.round(stock.Value * stock.Shares * 100)/100%></td>
+
+                        <td><%= stock.Sector %></td>
+                        <td><%=" $ " + Math.round(stock.AnnualDiv * 100 * stock.Shares)/100 %></td>
+                        <td><%= Math.round(stock.AnnualDiv / stock.Price * 10000)/100 +" %" %>
+                                        </td>
+                                        <td>
+                                          <% let PD=stock.PayDay%>
+                                            <% let formatted_date=PD.getDate() + "-" + (PD.getMonth() + 1) + "-" +
+                                              PD.getFullYear()%>
+                                              <%=formatted_date%>
+                                        </td>
+
+
+                                        <!-- <td><%= stock.DivFrequency %></td> -->
+                                        <td>
+                                          <%= stock.Shares/stock.SharesOutstanding *1000 + '‰' %>
+                                        </td>
+
+                                        <!-- <td><%="$ " + Math.round(stock.AnnualDiv*100)/100 %></td> -->
+                                      </tr>
+                                      <% } %>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td><strong>Shares:</strong></td>
+                          <td>
+                            <%=Shares%>
+                          </td>
+                          <td><strong>Total Invested</strong></td>
+                          <td>
+                            <%='$' + Math.round(TotInv*100)/100 %>
+                          </td>
+                          <td><strong>Total Annual Dividends:</strong></td>
+                          <td>
+                            <%='$' + Math.round(TotDiv*100)/100%>
+                          </td>
+                          <td>Avg%</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Upcomming payments</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
+                          class="fa fa-wrench"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Settings 1</a>
+                        <a class="dropdown-item" href="#">Settings 2</a>
+                      </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">DEC</p>
+                      <p class="day">9</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">AGNC</a>
+                      <p>$1,91</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">DEC</p>
+                      <p class="day">12</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">MMM</a>
+                      <p>$1,92</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">DEC</p>
+                      <p class="day">15</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">O</a>
+                      <p>$0,88</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">JAN</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">DLR</a>
+                      <p>$0,04</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">FEB</p>
+                      <p class="day">16</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">ABBV</a>
+                      <p>$0,22</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Latest payments</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
+                          class="fa fa-wrench"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Settings 1</a>
+                        <a class="dropdown-item" href="#">Settings 2</a>
+                      </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">DEC</p>
+                      <p class="day">3</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">PIMMCO</a>
+                      <p>$0,16</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">NOV</p>
+                      <p class="day">30</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">iShares energy</a>
+                      <p>$,05</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">Nov</p>
+                      <p class="day">17</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">AAPL</a>
+                      <p>$0,03</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Latest News <small></small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
+                          class="fa fa-wrench"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Settings 1</a>
+                        <a class="dropdown-item" href="#">Settings 2</a>
+                      </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Item One Title</a>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Item Two Title</a>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Item Two Title</a>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Item Two Title</a>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </article>
+                  <article class="media event">
+                    <a class="pull-left date">
+                      <p class="month">April</p>
+                      <p class="day">23</p>
+                    </a>
+                    <div class="media-body">
+                      <a class="title" href="#">Item Three Title</a>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- /page content -->
+
+      <!-- footer content -->
+      <footer>
+        <div class="pull-right">
+          <P>Personal Finance Manager by, Milan Koelen</p>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
+  </div>
+</body>
+
+</html>

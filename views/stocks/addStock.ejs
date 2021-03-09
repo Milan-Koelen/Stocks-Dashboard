@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+        <title>New Stock</title>
+        </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4"><strong>Add Stock</strong></h1>
+                    <a class="btn btn-primary btn-lg" href="/stocks" role="button">Back</a>
+                </div>
+            </div>
+            <form action='/stocks' method="POST">
+                <label for="Symbol">Ticker Symbol</label>
+                <input type="text" name="Symbol" id="Symbol"placeholder="MMM">
+                <label for="Shares">Shares</label>
+                <input type="number" name="Shares" id="Shares" placeholder="1.829" step=".00000001" min=0>
+                <label for="Price">Price $</label>
+                <input type="number" name="Price" id="Price" placeholder="238.92" step=".001" min=0>
+                <button>Add stock to portfolio</button>
+            </form>
+        </div>
+<%- include('partials/footer') %>

@@ -1,0 +1,24 @@
+.small-logo{
+      max-height: 35px;
+      object-fit: scale-down;
+}
+.smlogo{
+      max-height: 35px;
+      text-align: center;
+}
+.btn-primary{
+      background-color: grey;
+      border-color: grey;
+}
+body{
+      font-size: .7em;
+      background-color: rgb(238, 237, 237);
+}
+.jumbotron{
+      background-color: rgb(173, 173, 173);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+}
+.shareQnt{
+      width: 100px;
+}

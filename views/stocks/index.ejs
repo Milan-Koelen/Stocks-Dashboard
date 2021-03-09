@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/header') %>
+        <title>Stocks</title>
+    </head>
+    <body>
+        <div class="container">      
+             <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4"><strong>Dividend Portfolio</strong></h1>
+                    <p class="lead">Dividend paying stock portfolio</p>
+                    <p class="lead">Total portfolio value: <strong><span id="invested"></span></strong></p>
+                    <a class="btn btn-primary btn-lg" href="dividendCalendar.html" role="button">Calendar</a>
+                    <a class="btn btn-primary btn-lg" href="stocks/addStock" role="button">Add stock</a>
+                </div>
+            </div>
+            <table class="table-responsive table table-striped js-sort-table">
+            <thead class="thead-dark">
+                <tr>
+                        <th>Ticker</th>
+                        <th>Logo</th>
+                        <th>Shares</th>
+                        <th>Avg. Price</th>
+                        <th>Invested Principal</th>
+                        <th>Sector</th>
+                        <th>Annual Dividend</th>
+                        <th>Yield</th>
+                        <!-- <th>Frequency</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let stock of data) { %>
+                    <tr>
+                        <td><a href="/stocks/<%=stock._id%>"><%= stock.Symbol %></a></td>
+                        <td>
+                            <div class="smlogo">
+                                <!-- <img class="logo-small" src="<%= stock.Logo %>"> -->
+                            </div>
+                        </td>
+                        <td class="shareQnt"> <input type="number" class="shareQty" value="<%= stock.Shares %>"></td>
+                        <td><%="$ " + stock.Price %></td>
+                        <td><%="$ " + Math.round(stock.Price * 100 * stock.Shares)/100 %></td>
+                        <td><%= stock.Sector %></td>
+                        <td><%="$ " + Math.round(stock.AnnualDiv * 100 * stock.Shares)/100 %></td>
+                        <td><%= Math.round(stock.AnnualDiv / stock.Price * 10000)/100 +" %" %></td>
+
+
+                        <!-- <td><%= stock.DivFrequency %></td> -->
+
+                        <!-- <td><%="$ " + Math.round(stock.AnnualDiv*100)/100 %></td> -->
+                    </tr>
+                <% } %>
+            </tbody>
+            </table>
+        </div>
+        <%- include('partials/footer') %>
+    </body>
+    </html>

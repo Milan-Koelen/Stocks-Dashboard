@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+    <title>New Crypto</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4"><strong>Add Crypto</strong></h1>
+                    <a class="btn btn-primary btn-lg" href="/stocks" role="button">Back</a>
+                </div>
+            </div>
+            <form action='/crypto' method="POST">
+                <label for="Symbol">Crypto</label>
+                <input type="text" name="Symbol" id="Symbol" placeholder="BTCUSD">
+                <label for="Amount">Amount</label>
+                <input type="number" name="Amount" id="Amount" placeholder="1.829" step=".00000001" min=0>
+                <button>Add Crypto to portfolio</button>
+            </form>
+        </div>
+        <%- include('partials/footer') %>

@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+        <title>Details</title>
+    </head>
+    <body>
+        <div class="container">      
+            <div class="jumbotron jumbotron-fluid">
+               <div class="container">
+                   <img href="<%=Stockdetail.Logo%>">
+                   <h1 class="display-4"><strong><%=Stockdetail.Name%></strong></h1>
+                   <p class="lead">Shares: <strong><%=Stockdetail.Shares%></strong></p>
+                   <p class="lead">Price: <strong><%="$ " + Stockdetail.Price%></strong></p>
+                   <p class="lead">Total Invested: <strong><%="$ " + Math.round(Stockdetail.Shares * Stockdetail.Price*1000)/1000%></strong></p>
+                   <p class="lead">Annual div: <strong><%="$ " + Math.round(Stockdetail.Shares * Stockdetail.AnnualDiv*1000)/1000%></strong></p>
+                   <p class="lead">Ex Div Date: <strong><%=Stockdetail.ExDivDate%></strong></p>
+                   <p class="lead">Payday: <strong><%=Stockdetail.PayDay%></strong></p>
+
+
+               </div>
+           </div>
+           <a class="btn btn-primary btn-lg" href="/stocks" role="button">Back</a>
+           <a class="btn btn-primary btn-lg" href="/stocks/<%=Stockdetail.id%>/edit" role="button">Edit</a>
+        </div>           
+        <!-- <script src="fetchAPI.js" async defer>         </script> -->
+
+<%- include('partials/footer') %>

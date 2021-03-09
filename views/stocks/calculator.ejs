@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+    <title>Dividend Calculator</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4"><strong>Edit <%=Stockdetail.Name%></strong></h1>
+                    <a class="btn btn-primary btn-lg" href="/stocks" role="button">Back</a>
+                </div>
+            </div>
+            <form action='/stocks/<%=Stockdetail._id%>?_method=PUT' method="POST">
+                <label for="Sector">Sector</label>
+                <input type="text" name="Sector" id="Sector" placeholder="Tech" value="<%=Stockdetail.Sector%>">
+                <label for="Shares">Shares</label>
+                <input type="number" name="Shares" id="Shares" placeholder="1.829" step=".00000001" min=0
+                    value="<%=Stockdetail.Shares%>">
+                <label for="Price">Price</label>
+                <input type="number" name="Price" id="Price" placeholder="238.92" step=".001" min=0
+                    value="<%=Stockdetail.Price%>">
+                <label for="AnnualDiv">Dividend</label>
+                <input type="text" name="AnnualDiv" id="AnnualDiv" placeholder="238.92" step=".001" min=0
+                    value="<%=Stockdetail.AnnualDiv%>">
+                <button>Update <%=Stockdetail.Name%> stock</button>
+            </form>
+        </div>
+        <%- include('partials/footer') %>
