@@ -202,6 +202,7 @@
                           <th>Payday</th>
                           <!-- <th>Frequency</th> -->
                           <th>Ownership ‰</th>
+                          <th>Remove</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -233,7 +234,7 @@
                         <td><%= Math.round(stock.AnnualDiv / stock.Price * 10000)/100 +" %" %>
                                         </td>
                                         <td>
-                                          <% let PD=stock.PayDay%>
+                                          <% let PD=stock.PayDay || new Date()%>
                                             <% let formatted_date=PD.getDate() + "-" + (PD.getMonth() + 1) + "-" +
                                               PD.getFullYear()%>
                                               <%=formatted_date%>
@@ -246,6 +247,13 @@
                                         </td>
 
                                         <!-- <td><%="$ " + Math.round(stock.AnnualDiv*100)/100 %></td> -->
+                                        <td>
+                                          <form method="POST" action="/stocks/remove">
+                                            <input type="hidden" name="stockId" value="<%= stock._id %>" />
+                                            <button class="btn btn-error" type="submit"><i
+                                                class='fa fa-trash'></i></button>
+                                          </form>
+                                        </td>
                                       </tr>
                                       <% } %>
                       </tbody>
@@ -264,6 +272,7 @@
                             <%='$' + Math.round(TotDiv*100)/100%>
                           </td>
                           <td>Avg%</td>
+                          <td></td>
                           <td></td>
                           <td></td>
                         </tr>
