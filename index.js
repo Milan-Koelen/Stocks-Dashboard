@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const api_helper = require('./API_helper');
-const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 const { Stock, Value, ForEx } = require('./models');
 const { promises } = require('fs');
 const { parse } = require('path');
@@ -14,6 +14,7 @@ const jobs = require('./jobs');
 
 //Totals calculated from file
 const calculateTotals = require('./calculateTotals');
+const { getDefaultSettings } = require('http2');
 
 mongoose
 	.connect(process.env['STOCKS_DB'], { useNewUrlParser: true, useUnifiedTopology: true })
@@ -32,7 +33,7 @@ app.use('/views/stocks', express.static(__dirname + '/views/stocks'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 mongoose.set('useFindAndModify', false);
 
 // agenda console.log
@@ -140,7 +141,11 @@ app.post('/crypto', async (req, res) => {
 
 //Magically add new stock and data
 app.post('/stocks', async (req, res) => {
+	console.log(req.body);
 	const newStock = new Stock(req.body);
+	console.log(newStock);
+	const Shares = req.body.Shares;
+	const InvestedPrice = req.body.InvestedPrice;
 	// Requesting data from API
 	await newStock.save().then((async) => {
 		const req0 = api_helper.make_API_call(
@@ -186,10 +191,12 @@ app.post('/stocks', async (req, res) => {
 							ExDivDate: results[0]['exDividendDate'],
 							PayDay: results[2][0]['paymentDate'],
 							DeclaredDiv: results[2][0]['amount'],
+							Orders: newStock.Orders.concat({ Amount: Shares, Price: InvestedPrice, Date: Date() }),
 							DivFrequency: results[2][0]['frequency'],
 							SharesOutstanding: results[0]['sharesOutstanding'],
 							AnnualDiv: results[0]['ttmDividendRate'],
 							DivDeclareDate: results[2][0]['declaredDate']
+							// Invested = newStock.orders(price*amount)
 							// Logo:
 						}
 					},
@@ -205,6 +212,13 @@ app.post('/stocks', async (req, res) => {
 				console.log(err);
 			});
 	});
+});
+app.post('/stocks/remove', async (req, res) => {
+	const id = req.body.stockId;
+	console.log('Removing stonk ' + id);
+	const removed = await Stock.findByIdAndRemove(id);
+	console.log('removed', removed);
+	return res.redirect('/stocks');
 });
 
 app.get('/stocks/:id/edit', async (req, res) => {
